@@ -12,3 +12,8 @@ output "subnet_private" {
   value       = aws_subnet.private.*.id
   description = "The region where the subnets will be created"
 }
+
+output "internet_gw" {
+  value       = aws_internet_gateway.main-gw.id
+  description = "The region where the subnets will be created"
+}
