@@ -12,14 +12,26 @@ resource "aws_vpc" "main" {
 }
 
 #Public Subnets
-resource "aws_subnet" "main" {
-  count = length(var.subnet)
+resource "aws_subnet" "public" {
+  count = length(var.public_subnet)
   vpc_id = aws_vpc.main.id
-  cidr_block = lookup(var.subnet[count.index], "cidr_block", "")
-  map_public_ip_on_launch = lookup(var.subnet[count.index], "map_public_ip_on_launch", "")
-  availability_zone = lookup(var.subnet[count.index], "availability_zone", "")
+  cidr_block = var.public_subnet[count.index]
+  map_public_ip_on_launch = lookup(var.public_subnet[count.index], "map_public_ip_on_launch", "")
+  availability_zone = element(var.azs, count.index)
   tags = {
-    Name = "main"
+    Name = "public-main"
+  }
+}
+
+#Private Subnets
+resource "aws_subnet" "private" {
+  count = length(var.private_subnet)
+  vpc_id = aws_vpc.main.id
+  cidr_block = var.private_subnet[count.index]
+  map_public_ip_on_launch = lookup(var.private_subnet[count.index], "map_public_ip_on_launch", "")
+  availability_zone = element(var.azs, count.index)
+  tags = {
+    Name = "private-main"
   }
 }
 
@@ -32,7 +44,8 @@ resource "aws_internet_gateway" "main-gw" {
 }
 
 # route tables
-resource "aws_route_table" "main" {
+resource "aws_route_table" "public" {
+  count = length(var.public_subnets)
   vpc_id = "${aws_vpc.main.id}"
   route {
     cidr_block = "0.0.0.0/0"
@@ -43,8 +56,29 @@ resource "aws_route_table" "main" {
   }
 }
 
+resource "aws_route_table" "private" {
+  count = length(var.private_subnets)
+  vpc_id = "${aws_vpc.main.id}"
+  route {
+    cidr_block = "0.0.0.0/0"
+   gateway_id = "${aws_internet_gateway.main-gw.id}"
+  }
+  tags = { 
+    Name = "main-private-1"
+  }
+}
+
 #Route Associated Public
-resource "aws_route_table_association" "main" {
-  subnet_id = "${aws_subnet.main.*.id}"
-  route_table_id = "${aws_route_table.main.id}"
+
+resource "aws_route_table_association" "private" {
+  count = length(var.private_subnets)
+
+  subnet_id = element(aws_subnet.private.*.id, count.index)
+  route_table_id = element(aws_route_table.private.*.id)
+}
+resource "aws_route_table_association" "public" {
+  count = length(var.public_subnets)
+
+  subnet_id = element(aws_subnet.public.*.id, count.index)
+  route_table_id = element(aws_route_table.public.*.id)
 }

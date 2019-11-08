@@ -18,8 +18,20 @@ variable "enable_classiclink" {
   description = "The AWS region to create things in."
 }
 
-variable "subnet" {
+variable "public_subnet" {
   type        = list(map(string))
   description = "List of routes being created in this VPC"
+  default     = []
+}
+
+variable "private_subnet" {
+  type        = list(map(string))
+  description = "List of routes being created in this VPC"
+  default     = []
+}
+
+variable "azs" {
+  description = "A list of availability zones in the region"
+  type        = list(string)
   default     = []
 }
