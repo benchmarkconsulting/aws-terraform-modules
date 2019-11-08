@@ -1,9 +1,15 @@
-variable "allocation_id" {
-    description = "name for allocation_id"
-    type        = "string"
+
+
+variable "vpc_id" {
+type = "string"
 }
 
-variable "subnet_id" {
-    description = "name for subnet_id"
-    type        = "string"
+
+variable "public_subnet_id " {
+type = "string"
+}
+
+
+variable "private_subnet_id" {
+type = "string"
 }
