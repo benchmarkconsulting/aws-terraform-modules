@@ -15,7 +15,7 @@ resource "aws_vpc" "main" {
 #Public Subnets
 resource "aws_subnet" "main" {
   count = length(var.subnet)
-  vpc_id = lookup(var.vpc[count.index], "vpc_id", "")
+  vpc_id = "${aws_vpc.main.*.id}"
   cidr_block = lookup(var.vpc[count.index], "cidr_block", "")
   map_public_ip_on_launch = lookup(var.vpc[count.index], "map_public_ip_on_launch", "")
   availability_zone = lookup(var.vpc[count.index], "availability_zone", "")
