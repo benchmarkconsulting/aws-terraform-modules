@@ -6,9 +6,9 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = lookup(var.vpc[count.index], "enable_dns_hostnames", "")
   enable_classiclink = lookup(var.vpc[count.index], "enable_classiclink", "")
   tags = { 
-    Name = "lookup(var.vpc[count.index], "Name", "")"
-    Terraform  = "lookup(var.vpc[count.index], "Terraform", "")"
-    Environment = "lookup(var.vpc[count.index], "Environment", "")"
+    Name = "main"
+    Terraform  = "true"
+    Environment = "dev"
   }
 }
 
@@ -20,7 +20,7 @@ resource "aws_subnet" "main" {
   map_public_ip_on_launch = lookup(var.vpc[count.index], "map_public_ip_on_launch", "")
   availability_zone = lookup(var.vpc[count.index], "availability_zone", "")
   tags = {
-    Name = "lookup(var.vpc[count.index], "Name", "")"
+    Name = "main"
   }
 }
 
