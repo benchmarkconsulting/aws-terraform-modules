@@ -17,7 +17,7 @@ resource "aws_subnet" "main" {
   vpc_id = aws_vpc.main.id
   cidr_block = lookup(var.vpc[count.index], "cidr_block", "")
   map_public_ip_on_launch = lookup(var.vpc[count.index], "map_public_ip_on_launch", "")
-  availability_zone = lookup(var.vpc[count.index], "availability_zone", "")
+  availability_zone = [lookup(var.vpc[count.index], "availability_zone", "")]
   tags = {
     Name = "main"
   }
