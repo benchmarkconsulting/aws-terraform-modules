@@ -18,10 +18,6 @@ variable "enable_classiclink" {
   description = "The AWS region to create things in."
 }
 
-variable "aws_route_table_association" {
-  description = "The AWS region to create things in."
-}
-
 variable "subnet" {
   type        = list(map(string))
   description = "List of routes being created in this VPC"
