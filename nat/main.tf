@@ -16,7 +16,7 @@ resource "aws_route_table" "internet" {
     gateway_id = aws_nat_gateway.gw.id
   }
 
-  tags {
+  tags = {
 
     Name = "internet-rt"
   }
