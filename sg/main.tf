@@ -5,13 +5,13 @@ resource "aws_security_group" "default" {
 
  ingress {
    protocol         = lookup(var.firewall[count.index], "ingress_protocol", "")
-   to_port          = [lookup(var.firewall[count.index], "ingress_to_port", "")]
-   from_port        = [lookup(var.firewall[count.index], "ingress_from_port", "")]
+   to_port          = lookup(var.firewall[count.index], "ingress_to_port", "")
+   from_port        = lookup(var.firewall[count.index], "ingress_from_port", "")
  }
   egress {
    protocol         = lookup(var.firewall[count.index], "egress_protocol", "")
-   to_port          = [lookup(var.firewall[count.index], "egress_to_port", "")]
-   from_port        = [lookup(var.firewall[count.index], "egress_from_port", "")]
+   to_port          = lookup(var.firewall[count.index], "egress_to_port", "")
+   from_port        = lookup(var.firewall[count.index], "egress_from_port", "")
    cidr_blocks      = [lookup(var.firewall[count.index], "cidr_blocks", "")]
  }
 }
