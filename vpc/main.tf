@@ -45,6 +45,6 @@ resource "aws_route_table" "main" {
 
 #Route Associated Public
 resource "aws_route_table_association" "main" {
-  subnet_id = var.route_association_subnet
+  subnet_id = var.aws_route_table_association
   route_table_id = "${aws_route_table.main.id}"
 }
