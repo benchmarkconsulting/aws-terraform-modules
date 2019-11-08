@@ -30,7 +30,7 @@ r
 resource "aws_internet_gateway" "main-gw" {
   vpc_id = "${aws_vpc.main[0].id}"
   tags = { 
-    Name = ${aws_vpc.main[0].id}
+    Name = "main-gw"
   }
 }
 
