@@ -5,7 +5,7 @@ resource "aws_eip" "main" {
 resource "aws_nat_gateway" "gw" {
   allocation_id = aws_eip.main.id
   subnet_id = var.public_subnet_id
-  depends_on = [aws_internet_gateway.gw]
+  
 }
 
 resource "aws_route_table" "internet" {
