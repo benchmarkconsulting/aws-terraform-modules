@@ -19,13 +19,13 @@ variable "enable_classiclink" {
 }
 
 variable "public_subnets" {
-  type        = list(map(string))
+  type        = list(string)
   description = "List of routes being created in this VPC"
   default     = []
 }
 
 variable "private_subnets" {
-  type        = list(map(string))
+  type        = list(string)
   description = "List of routes being created in this VPC"
   default     = []
 }
