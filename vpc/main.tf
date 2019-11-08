@@ -13,10 +13,10 @@ resource "aws_vpc" "main" {
 
 #Public Subnets
 resource "aws_subnet" "public" {
-  count = length(var.public_subnet)
+  count = length(var.public_subnets)
   vpc_id = aws_vpc.main.id
-  cidr_block = var.public_subnet[count.index]
-  map_public_ip_on_launch = lookup(var.public_subnet[count.index], "map_public_ip_on_launch", "")
+  cidr_block = var.public_subnets[count.index]
+  map_public_ip_on_launch = lookup(var.public_subnets[count.index], "map_public_ip_on_launch", "")
   availability_zone = element(var.azs, count.index)
   tags = {
     Name = "public-main"
@@ -25,10 +25,10 @@ resource "aws_subnet" "public" {
 
 #Private Subnets
 resource "aws_subnet" "private" {
-  count = length(var.private_subnet)
+  count = length(var.private_subnets)
   vpc_id = aws_vpc.main.id
-  cidr_block = var.private_subnet[count.index]
-  map_public_ip_on_launch = lookup(var.private_subnet[count.index], "map_public_ip_on_launch", "")
+  cidr_block = var.private_subnets[count.index]
+  map_public_ip_on_launch = lookup(var.private_subnets[count.index], "map_public_ip_on_launch", "")
   availability_zone = element(var.azs, count.index)
   tags = {
     Name = "private-main"
