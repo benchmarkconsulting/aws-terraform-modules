@@ -1,10 +1,9 @@
 resource "aws_vpc" "main" {
-  count = length(var.vpc)
-  cidr_block       = lookup(var.vpc[count.index], "cidr_block", "")
-  instance_tenancy = lookup(var.vpc[count.index], "instance_tenancy", "")
-  enable_dns_support = lookup(var.vpc[count.index], "enable_dns_suppor", "")
-  enable_dns_hostnames = lookup(var.vpc[count.index], "enable_dns_hostnames", "")
-  enable_classiclink = lookup(var.vpc[count.index], "enable_classiclink", "")
+  cidr_block       = var.cidr_block
+  instance_tenancy = var.instance_tenancy
+  enable_dns_support = var.enable_dns_support
+  enable_dns_hostnames = var.enable_dns_hostnames
+  enable_classiclink = var.enable_classiclink
   tags = { 
     Name = "main"
     Terraform  = "true"
@@ -15,7 +14,7 @@ resource "aws_vpc" "main" {
 #Public Subnets
 resource "aws_subnet" "main" {
   count = length(var.subnet)
-  vpc_id = lookup(var.vpc[count.index], "vpc_id", "")
+  vpc_id = aws_vpc.main.id
   cidr_block = lookup(var.vpc[count.index], "cidr_block", "")
   map_public_ip_on_launch = lookup(var.vpc[count.index], "map_public_ip_on_launch", "")
   availability_zone = lookup(var.vpc[count.index], "availability_zone", "")
