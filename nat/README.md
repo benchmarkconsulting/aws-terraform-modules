@@ -18,6 +18,12 @@ intended for Terraform 0.11.x is [3.0.0].
 ## Usage
 
 ```hcl
-module "nat" {
-    source = "git::https://oauth2:z<oauth token>@gitlab.com/kwdevops/aws-terraform-modules//nat"
+mmodule "nat" {
+    source  = "git::https://oauth2:<insert oauth info>@gitlab.com/kwdevops/aws-terraform-modules//nat" 
+
+    vpc_id = module.vpc.vpc_id
+    public_subnet_id = module.vpc.subnet_public[0]
+    private_subnet_id = module.vpc.subnet_private[0]
+
+}
 ```
