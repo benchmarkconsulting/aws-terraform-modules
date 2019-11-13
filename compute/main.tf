@@ -5,7 +5,7 @@ resource "aws_instance" "harness" {
     vpc_security_group_ids = ["${aws_security_group.allow-ssh.id}"]
     key_name = "${aws_key_pair.demo-key.id}"
     tags = {
-      Name = "harness-delegate"
+      Name = "bastion"
       Terraform = "True"
   }
 }
