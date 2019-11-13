@@ -8,3 +8,4 @@ resource "aws_instance" "harness" {
       Name = "harness-delegate"
       Terraform = "True"
   }
+}
