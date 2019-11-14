@@ -1,11 +1,11 @@
-resource "aws_instance" "harness" {
+resource "aws_instance" "compute" {
     ami = var.ami
+    count = var.instance_count
     instance_type = var.instance_type
-    subnet_id = var.public_subnet_id
-    vpc_security_group_ids = ["${aws_security_group.allow-ssh.id}"]
-    #key_name = "${aws_key_pair.demo-key.id}"
+    subnet_id = var.subnet_id
+    vpc_security_group_ids = var.vpc_security_group_ids
     tags = {
-      Name = "bastion"
+      Name = "${var.name}-${count.index+1}"
       Terraform = "True"
   }
 }

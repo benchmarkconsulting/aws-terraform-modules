@@ -1,19 +1,26 @@
 
 
 variable "ami" {
-type = "string"
+type = string
 }
 
 
 variable "instance_type" {
-type = "string"
+type = string
 }
 
 variable "vpc_security_group_ids" {
-type = "string"
+type = list(string)
 }
 
 variable "subnet_id" {
-type = "string"
+type = string
 }
 
+variable "name" {
+type = string  
+}
+
+variable "instance_count" {
+type = string
+}
