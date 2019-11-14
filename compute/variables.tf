@@ -21,6 +21,6 @@ variable "name" {
 type = string  
 }
 
-variable "amount" {
+variable "instance_count" {
 type = string
 }
