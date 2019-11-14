@@ -9,7 +9,7 @@ resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSServicePolicy" {
 }
 resource "aws_eks_cluster" "default" {
  name       = var.cluster_name
- role_arn           = aws_iam_role_policy_attachment.cluster_AmazonEKSServicePolicy.role
+ role_arn           = aws_iam_role_policy_attachment.cluster_AmazonEKSServicePolicy.id
  vpc_config {
     subnet_ids = var.subnet_ids
   }
