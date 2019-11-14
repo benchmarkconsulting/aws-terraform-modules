@@ -5,7 +5,7 @@ resource "aws_instance" "compute" {
     subnet_id = var.subnet_id
     vpc_security_group_ids = var.vpc_security_group_ids
     tags = {
-      Name = var.name
+      Name = var.name[count.index]
       Terraform = "True"
   }
 }
