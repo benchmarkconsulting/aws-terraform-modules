@@ -21,6 +21,6 @@ variable "name" {
 type = string  
 }
 
-variable "count" {
+variable "amount" {
 type = string
 }
