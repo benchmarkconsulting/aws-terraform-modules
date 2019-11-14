@@ -8,8 +8,7 @@ resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSServicePolicy" {
   role       = "kwdevop-eks-role"
 }
 resource "aws_eks_cluster" "default" {
- cluster_name               = var.cluster_name
- version            = var.version
+ cluster_name       = var.cluster_name
  role_arn           = aws_iam_role_policy_attachment.cluster_AmazonEKSServicePolicy.role
  vpc_id             = aws_vpc.main.id
  vpc_config {
