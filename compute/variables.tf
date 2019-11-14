@@ -10,7 +10,7 @@ type = string
 }
 
 variable "vpc_security_group_ids" {
-type = string
+type = list(string)
 }
 
 variable "subnet_id" {
