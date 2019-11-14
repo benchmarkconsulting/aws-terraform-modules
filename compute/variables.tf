@@ -17,3 +17,10 @@ variable "subnet_id" {
 type = string
 }
 
+variable "name" {
+type = string  
+}
+
+variable "count" {
+type = string
+}
