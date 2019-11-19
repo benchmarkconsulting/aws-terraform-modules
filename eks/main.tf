@@ -38,6 +38,6 @@ resource "aws_eks_cluster" "default" {
     "aws_iam_role_policy_attachment.cluster_AmazonEKSServicePolicy",
   ]
 }
-}
+
 
 
