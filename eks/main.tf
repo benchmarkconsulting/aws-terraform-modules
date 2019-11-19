@@ -43,8 +43,8 @@ resource "aws_launch_configuration" "node" {
   iam_instance_profile        = aws_iam_role.test_role.arn
   image_id                    = var.ami_id
   instance_type               = var.instance_type
-  name_prefix                 = {var.name}
-  key_name                    = {var.key_pair}
+  name_prefix                 = var.name
+  key_name                    = var.key_pair
   associate_public_ip_address = false
   security_groups             = [var.security_groups]
 
