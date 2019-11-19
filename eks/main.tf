@@ -12,7 +12,7 @@ resource "aws_eks_cluster" "default" {
 }
 
 resource "aws_launch_configuration" "node" {
-  iam_instance_profile        = aws_iam_role.node.arn
+  iam_instance_profile        = aws_iam_instance_profile.node.name
   image_id                    = var.ami_id
   instance_type               = var.instance_type
   name                        = var.node_name
