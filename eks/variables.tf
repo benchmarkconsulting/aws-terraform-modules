@@ -13,7 +13,7 @@ variable "ami_id" {
   default = "ami-00dc79254d0461090"
   description = "ami to use with the default if not specified"
 }
-variable "name" {
+variable "node_name" {
   description = "used to attach the eks to private subnet"
 }
 variable "key_pair" {
