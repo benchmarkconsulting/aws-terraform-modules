@@ -28,10 +28,8 @@ variable "disk_size" {
   description = "The root device size for the worker nodes."
 }
 variable "max_size" {
-  default     = ""
   description = "max size of the worker node."
 }
 variable "min_size" {
-  default     = ""
   description = "min size of the worker node."
 }
