@@ -35,6 +35,3 @@ variable "min_size" {
   default     = ""
   description = "min size of the worker node."
 }
-max_size
-
-max_size
