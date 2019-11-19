@@ -46,7 +46,7 @@ resource "aws_launch_configuration" "node" {
   name                        = var.node_name
   key_name                    = var.key_pair
   associate_public_ip_address = false
-  security_groups             = [var.security_groups]
+  security_groups             = var.security_groups
 
   root_block_device {
     volume_size = var.disk_size
