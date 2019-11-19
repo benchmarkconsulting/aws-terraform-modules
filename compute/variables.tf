@@ -24,3 +24,7 @@ type = string
 variable "instance_count" {
 type = string
 }
+
+variable "scriptname" {
+type = string    
+}
