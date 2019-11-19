@@ -31,7 +31,7 @@ resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSClusterPolicy" {
 
 # Node Role
 resource "aws_iam_role" "node" {
-  name = "EKSNodeRole-${var.name}"
+  name = "EKSNodeRole-${var.node_name}"
 
   assume_role_policy = "${data.aws_iam_policy_document.node_assume_role.json}"
   force_detach_policies = true
@@ -66,6 +66,6 @@ resource "aws_iam_role_policy_attachment" "node_AmazonEC2ContainerRegistryReadOn
 }
 
 resource "aws_iam_instance_profile" "node" {
-  name = "${var.name}"
+  name = "${var.node_name}"
   role = "${aws_iam_role.node.name}"
 }
