@@ -29,6 +29,6 @@ variable "scriptname" {
 type = string    
 }
 
-variable "keypair" {
+variable "key_name" {
 type = string    
 }

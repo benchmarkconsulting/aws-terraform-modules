@@ -5,7 +5,7 @@ resource "aws_instance" "compute" {
     subnet_id = var.subnet_id
     vpc_security_group_ids = var.vpc_security_group_ids
     user_data = "${file("${path.cwd}/scripts/${var.scriptname}")}"
-    keypair = var.keypair
+    key_name = var.key_name
     tags = {
       Name = "${var.name}-${count.index+1}"
       Terraform = "True"
