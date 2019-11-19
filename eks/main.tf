@@ -39,27 +39,7 @@ resource "aws_eks_cluster" "default" {
   ]
 }
 
-# resource "aws_launch_configuration" "node" {
-#   iam_instance_profile        = aws_iam_role.test_role.arn
-#   image_id                    = var.ami_id
-#   instance_type               = var.instance_type
-#   name                        = var.node_name
-#   key_name                    = var.key_pair
-#   associate_public_ip_address = false
-#   security_groups             = [var.security_groups]
 
-#   root_block_device {
-#     volume_size = var.disk_size
-#   }
-
-#   lifecycle {
-#     create_before_destroy = true
-#   }
-
-#   depends_on = [
-#     "aws_eks_cluster.default",
-#   ]
-# }
 
 
 
