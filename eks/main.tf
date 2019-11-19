@@ -49,7 +49,7 @@ resource "aws_launch_configuration" "node" {
   security_groups             = [var.security_groups]
 
   root_block_device {
-    volume_size = var.disk_size}
+    volume_size = var.disk_size
   }
 
   lifecycle {
