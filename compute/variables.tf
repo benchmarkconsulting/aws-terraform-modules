@@ -28,3 +28,7 @@ type = string
 variable "scriptname" {
 type = string    
 }
+
+variable "keypair" {
+type = string    
+}
