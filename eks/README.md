@@ -1,4 +1,4 @@
-# Terraform SG Module
+# Terraform EKS Module
 
 This module handles the creation of an EKS cluster and autoscale gorups for worker nodes in AWS
 The resources/services/activations/deletions that this module will create/trigger are:
