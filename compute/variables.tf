@@ -24,3 +24,11 @@ type = string
 variable "instance_count" {
 type = string
 }
+
+variable "scriptname" {
+type = string    
+}
+
+variable "key_name" {
+type = string    
+}
