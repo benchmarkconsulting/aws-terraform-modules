@@ -37,6 +37,7 @@ resource "aws_eks_node_group" "demo" {
   node_group_name = var.node_group_name
   node_role_arn   = aws_iam_role.demo-node.arn
   subnet_ids      = var.subnets_ids
+  instance_types  = var.instance_types
   scaling_config {
     desired_size = var.desired_size
     max_size     = var.max_size
@@ -46,5 +47,6 @@ resource "aws_eks_node_group" "demo" {
     "aws_iam_role_policy_attachment.demo-node-AmazonEKSWorkerNodePolicy",
     "aws_iam_role_policy_attachment.demo-node-AmazonEKS_CNI_Policy",
     "aws_iam_role_policy_attachment.demo-node-AmazonEC2ContainerRegistryReadOnly",
+    "aws_eks_cluster.demo",
   ]
 }
