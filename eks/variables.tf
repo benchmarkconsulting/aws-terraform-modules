@@ -17,3 +17,10 @@ variable "max_size" {
 variable "cluster_name" {
     type = string
 }
+
+variable "subnets_ids" {
+}
+
+variable "vpc_id" {
+  type = string
+}
