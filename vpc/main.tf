@@ -37,7 +37,7 @@ resource "aws_subnet" "private" {
 
 # Internet Gateway
 resource "aws_internet_gateway" "main-gw" {
-  vpc_id = "${aws_vpc.main.id}"
+  vpc_id = aws_vpc.main.id
   tags = { 
    Name = "main-gw"
   }
@@ -49,7 +49,7 @@ resource "aws_route_table" "public" {
   vpc_id = "${aws_vpc.main.id}"
   route {
     cidr_block = "0.0.0.0/0"
-   gateway_id = "${aws_internet_gateway.main-gw.id}"
+   gateway_id = aws_internet_gateway.main-gw.id
   }
   tags = { 
     Name = "main-public-1"
@@ -61,7 +61,7 @@ resource "aws_route_table" "private" {
   vpc_id = aws_vpc.main.id
   route {
     cidr_block = "0.0.0.0/0"
-   gateway_id = "${aws_internet_gateway.main-gw.id}"
+   gateway_id = aws_internet_gateway.main-gw.id
   }
   tags = { 
     Name = "main-private-1"
