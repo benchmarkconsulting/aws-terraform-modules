@@ -16,7 +16,7 @@ intended for Terraform 0.11.x is [3.0.0].
 
 ```hcl
 module "sg" {
-    source = "git::https://github.com/aws-terraform-modules//sg"
+    source = "git::https://github.com/benchmarkconsulting/aws-terraform-modules//sg"
     sg = [
         {
             name                 = "allow_ssh"
