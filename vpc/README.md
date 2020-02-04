@@ -20,7 +20,7 @@ intended for Terraform 0.11.x is [3.0.0].
 
 ```hcl
 module "vpc" {
-    source  = "git::https://oauth2:<oauth token>@gitlab.com/kwdevops/aws-terraform-modules//vpc"
+    source  = "git::https://github.com/benchmarkconsulting/aws-terraform-modules//vpc"
     
     cidr_block           = "10.0.0.0/16"
     instance_tenancy     = "default"
