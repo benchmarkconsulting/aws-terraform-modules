@@ -18,7 +18,7 @@ intended for Terraform 0.11.x is [3.0.0].
 
 ```hcl
 module "eks" {
-  source          = "git::https://github.com/aws-terraform-modules//eks"
+  source          = "git::https://github.com/benchmarkconsulting/aws-terraform-modules//eks"
   vpc_id          = "vpc-00a16978e759218be"
   cluster_name    = "demo-eks-cluster"
   node_group_name = "demo-eks-nodes"
