@@ -18,7 +18,7 @@ intended for Terraform 0.11.x is [3.0.0].
 ## Usage
 
 ```hcl
-mmodule "nat" {
+module "nat" {
     source  = "git::https://github.com/aws-terraform-modules//nat" 
 
     vpc_id = module.vpc.vpc_id
