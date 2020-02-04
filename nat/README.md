@@ -19,7 +19,7 @@ intended for Terraform 0.11.x is [3.0.0].
 
 ```hcl
 mmodule "nat" {
-    source  = "git::https://github.com/baws-terraform-modules//nat" 
+    source  = "git::https://github.com/aws-terraform-modules//nat" 
 
     vpc_id = module.vpc.vpc_id
     public_subnet_id = module.vpc.subnet_public[0]
