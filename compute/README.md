@@ -18,7 +18,7 @@ intended for Terraform 0.11.x is [3.0.0].
 ```hcl
 module "compute" {
 
-source = "git::https://oauth2:<oauth token>@gitlab.com/kwdevops/aws-terraform-modules//compute"
+source = "git::https://github.com/aws-terraform-modules//compute"
 
     ami = "ami-04763b3055de4860b"
     name = "Bastion"
